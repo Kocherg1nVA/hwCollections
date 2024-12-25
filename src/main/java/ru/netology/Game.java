@@ -8,7 +8,7 @@ public class Game {
 
     public Player register(Player player) {
         players.add(player);
-        return player;
+            return player;
     }
 
     public Player findByName(String name) {

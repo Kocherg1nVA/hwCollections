@@ -10,7 +10,7 @@ public class GameTest {
     Player player1 = new Player(1, "Brut", 16);
     Player player2 = new Player(12, "Lion", 18);
     Player player3 = new Player(8, "Ozzy", 11);
-    Player player4 = new Player(8, "Zoltan", 16);
+    Player player4 = new Player(3, "Zoltan", 16);
 
     Game manager = new Game();
 
