@@ -1,19 +1,19 @@
 package ru.netology;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
 
-    private ArrayList<Player> players = new ArrayList<>();
+    private HashMap<String, Player> players = new HashMap<>();
 
     public Player register(Player player) {
-        players.add(player);
-            return player;
+        players.put(player.getName(), player);
+        return player;
     }
 
-    public Player findByName(String name) {
-        for (Player player : players) {
-            if (player.getName().equals(name)) {
+    public String findByName(String name) {
+        for (String player : players.keySet()) {
+            if (player.equals(name)) {
                 return player;
             }
         }
@@ -27,9 +27,9 @@ public class Game {
             throw new NotRegisteredException("Player" + playerName2 + " is not registered");
         }
 
-        if (findByName(playerName1).getStrength() > findByName(playerName2).getStrength()) {
+        if (players.get(playerName1).getStrength() > players.get(playerName2).getStrength()) {
             return 1;
-        } else if (findByName(playerName1).getStrength() < findByName(playerName2).getStrength()) {
+        } else if (players.get(playerName1).getStrength() < players.get(playerName2).getStrength()) {
             return -1;
         } else {
             return 0;

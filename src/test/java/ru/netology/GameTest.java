@@ -28,8 +28,8 @@ public class GameTest {
         manager.register(player3);
         manager.register(player4);
 
-        Player expected = player2;
-        Player actual = manager.findByName("Lion");
+        String expected = player2.getName();
+        String actual = manager.findByName("Lion");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -40,8 +40,8 @@ public class GameTest {
         manager.register(player2);
         manager.register(player3);
 
-        Player expected = null;
-        Player actual = manager.findByName("Zoltan");
+        String expected = null;
+        String actual = manager.findByName("Zoltan");
 
         Assertions.assertEquals(expected, actual);
     }
