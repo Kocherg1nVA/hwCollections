@@ -3,8 +3,6 @@ package ru.netology;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.ArrayList;
-
 public class GameTest {
 
     Player player1 = new Player(1, "Brut", 16);
@@ -28,8 +26,8 @@ public class GameTest {
         manager.register(player3);
         manager.register(player4);
 
-        String expected = player2.getName();
-        String actual = manager.findByName("Lion");
+        boolean expected = true;
+        boolean actual = manager.findByName("Lion");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -40,8 +38,8 @@ public class GameTest {
         manager.register(player2);
         manager.register(player3);
 
-        String expected = null;
-        String actual = manager.findByName("Zoltan");
+        boolean expected = false;
+        boolean actual = manager.findByName("Zoltan");
 
         Assertions.assertEquals(expected, actual);
     }

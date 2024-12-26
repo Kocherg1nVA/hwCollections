@@ -11,25 +11,25 @@ public class Game {
         return player;
     }
 
-    public String findByName(String name) {
-        for (String player : players.keySet()) {
-            if (player.equals(name)) {
-                return player;
-            }
-        }
-        return null;
+    public boolean findByName(String name) {
+
+        return players.containsKey(name);
     }
 
     public int round(String playerName1, String playerName2) {
-        if (findByName(playerName1) == null) {
+        
+        if (!findByName(playerName1)) {
             throw new NotRegisteredException("Player " + playerName1 + " is not registered");
-        } else if (findByName(playerName2) == null) {
+        } else if (!findByName(playerName2)) {
             throw new NotRegisteredException("Player" + playerName2 + " is not registered");
         }
 
-        if (players.get(playerName1).getStrength() > players.get(playerName2).getStrength()) {
+        Player player1 = players.get(playerName1);
+        Player player2 = players.get(playerName2);
+
+        if (player1.getStrength() > player2.getStrength()) {
             return 1;
-        } else if (players.get(playerName1).getStrength() < players.get(playerName2).getStrength()) {
+        } else if (player1.getStrength() < player2.getStrength()) {
             return -1;
         } else {
             return 0;
