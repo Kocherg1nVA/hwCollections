@@ -17,7 +17,10 @@ public class GameTest {
     @Test
     public void shouldAddPlayer() {
 
-        Assertions.assertEquals(player1, manager.register(player1));
+        Player expected = player1;
+        Player actual = manager.register(player1);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test

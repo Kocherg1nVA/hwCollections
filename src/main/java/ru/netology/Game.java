@@ -8,7 +8,7 @@ public class Game {
 
     public Player register(Player player) {
         players.add(player);
-            return player;
+        return player;
     }
 
     public Player findByName(String name) {
@@ -21,15 +21,19 @@ public class Game {
     }
 
     public int round(String playerName1, String playerName2) {
-        if (findByName(playerName1) == null) {
+
+        Player player1 = findByName(playerName1);
+        Player player2 = findByName(playerName2);
+
+        if (player1 == null) {
             throw new NotRegisteredException("Player " + playerName1 + " is not registered");
-        } else if (findByName(playerName2) == null) {
+        } else if (player2 == null) {
             throw new NotRegisteredException("Player" + playerName2 + " is not registered");
         }
 
-        if (findByName(playerName1).getStrength() > findByName(playerName2).getStrength()) {
+        if (player1.getStrength() > player2.getStrength()) {
             return 1;
-        } else if (findByName(playerName1).getStrength() < findByName(playerName2).getStrength()) {
+        } else if (player1.getStrength() < player2.getStrength()) {
             return -1;
         } else {
             return 0;
